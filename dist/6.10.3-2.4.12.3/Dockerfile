@@ -21,8 +21,8 @@ RUN yum update -y \
       && ./configure \
       && make \
       && make install \
-      && cd .. 
-      && rm node-v${NODE_VERSION}.tar.gz
+      && cd .. \
+      && rm node-v${NODE_VERSION}.tar.gz \
       && mkdir -p ${OPENCV_RELEASE} \
       && mkdir -p ${OPENCV_INSTALL_PREFIX} \
       && cd ${LOCAL_SRC} \
