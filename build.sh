@@ -10,8 +10,9 @@ do
 	for OPENCV_VERSION in "${OPENCV_VERSIONS[@]}" 
 	do
 		TAG=${OPENCV_VERSION}-${NODE_VERSION}
-		docker build -t piercus/lambda-opencv:$TAG \
-			--build-arg OPENCV_VERSION=$AWS_ACCESS_KEY_ID \
-			--build-arg NODE_VERSION=$NODE_VERSION
+		mkdir -p dist/$TAG
+		sed "s/OPENCV_VERSION_TO_REPLACE/${OPENCV_VERSION}/" src/Dockerfile > dist/$TAG/tmp1
+		sed "s/NODE_VERSION_TO_REPLACE/${NODE_VERSION}/" dist/$TAG/tmp1 > dist/$TAG/Dockerfile
+		rm -f dist/$TAG/tmp1
 	done
 done
