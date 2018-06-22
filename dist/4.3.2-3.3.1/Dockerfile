@@ -29,7 +29,7 @@ RUN yum update -y \
       && curl -s -L -O https://github.com/itseez/opencv/archive/${OPENCV_VERSION}.zip \
       && unzip ${OPENCV_VERSION}.zip \
       && cd ${OPENCV_RELEASE} \
-      && cmake -D CMAKE_BUILD_TYPE=RELEASE -D WITH_IPP=ON -D INSTALL_CREATE_DISTRIB=ON -D BUILD_SHARED_LIBS=NO -D CMAKE_INSTALL_PREFIX=${OPENCV_INSTALL_PREFIX} .. \
+      && cmake -D CMAKE_BUILD_TYPE=RELEASE -D WITH_OPENEXR=OFF -D WITH_IPP=ON -D INSTALL_CREATE_DISTRIB=ON -D BUILD_SHARED_LIBS=NO -D CMAKE_INSTALL_PREFIX=${OPENCV_INSTALL_PREFIX} .. \
       && make \
       && make install \
       && cd  ${LOCAL_SRC}\
