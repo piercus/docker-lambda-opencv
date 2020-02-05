@@ -12,7 +12,7 @@ ENV PKG_CONFIG_PATH ${OPENCV_INSTALL_PREFIX}/lib/pkgconfig
 RUN yum update -y \
       && yum install -y gcc44 gcc-c++ libgcc44 \
       && yum install -y libjpeg-devel libpng-devel libjasper-devel libtiff-devel openssl-devel \
-      && yum install -y unzip cmake git openssh-clients tar \
+      && yum install -y unzip cmake git openssh-clients tar make \
       && yum -y clean all \
       && cd ${LOCAL_SRC} \
       && curl -s -L -O https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}.tar.gz \
